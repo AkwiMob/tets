@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Slayer - Chapitre 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #111;
+            color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Barre de navigation en haut */
+        .nav-bar {
+            width: 100%;
+            background-color: #222;
+            padding: 5px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px; /* Réduction de la taille de la barre de navigation */
+        }
+
+        /* Liens de la barre de navigation */
+        .nav-bar a {
+            color: #f2f2f2;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 0 5px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            background-color: #444;
+        }
+
+        /* Positionnement des éléments dans la barre */
+        .nav-bar .home {
+            margin-left: 10px;
+        }
+
+        .nav-bar .chapters {
+            margin-right: 10px;
+        }
+
+        /* Icône pour ouvrir/fermer le répertoire des chapitres (trois barres) */
+        .directory-icon {
+            font-size: 20px; /* Réduction de la taille de l'icône */
+            color: #f2f2f2;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #222;
+            transition: background-color 0.3s ease;
+        }
+
+        .directory-icon:hover {
+            background-color: #444;
+        }
+
+        /* Répertoire des chapitres aligné avec la barre de navigation */
+        .chapter-directory {
+            position: absolute;
+            top: 45px; /* Position en dessous de la barre de navigation */
+            right: 50%;
+            transform: translateX(50%);
+            background-color: #222;
+            padding: 15px;
+            color: #f2f2f2;
+            display: none;
+            border-radius: 10px;
+            width: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .chapter-directory a {
+            display: block;
+            color: #f2f2f2;
+            font-size: 16px;
+            margin: 8px;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            transition: background-color 0.3s ease;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .chapter-directory a:hover {
+            background-color: #444;
+        }
+
+        /* Contenu principal */
+        .content {
+            margin-top: 60px;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #f2f2f2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            width: 100%;
+            background-color: #222;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+        }
+
+        .footer-nav a {
+            color: #f2f2f2;
+            font-size: 18px;
+            margin: 10px;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            background-color: #444;
+        }
+
+        /* Styles spécifiques pour mobile */
+        @media only screen and (max-width: 768px) {
+            .nav-bar a, .footer-nav a {
+                font-size: 12px; /* Réduction de la taille des liens */
+                padding: 6px 8px;
+            }
+
+            .chapter-directory {
+                width: 180px;
+                top: 50px; /* Ajustement pour les petits écrans */
+            }
+
+            .directory-icon {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Barre de navigation en haut -->
+<div class="nav-bar">
+    <a href="chapter1.html" class="chapters">Chapitre Précédent</a>
+    <!-- Accueil et Icône pour ouvrir/fermer le répertoire des chapitres -->
+    <div class="home-and-icon" style="display: flex; align-items: center;">
+        <a href="https://digital-rectangle-161412.framer.app/" class="home">Accueil</a>
+        <div class="directory-icon" id="toggleDirectory">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <a href="chapter2.html" class="chapters">Chapitre Suivant</a>
+</div>
+
+<!-- Répertoire des chapitres -->
+<div class="chapter-directory" id="chapterDirectory">
+    <a href="chapter1.html">Chapitre 01</a>
+    <a href="chapter2.html">Chapitre 02</a>
+</div>
+
+<!-- Contenu principal -->
+<div class="content">
+    <h1>Moon Slayer - Chapitre 1</h1>
+    <img src="images/01.jpg" alt="Page 01">
+    <img src="images/02.jpg" alt="Page 02">
+    <img src="images/03.jpg" alt="Page 03">
+    <img src="images/04.jpg" alt="Page 04">
+    <img src="images/05.jpg" alt="Page 05">
+    <img src="images/06.jpg" alt="Page 06">
+    <img src="images/07.jpg" alt="Page 07">
+    <img src="images/08.jpg" alt="Page 08">
+    <img src="images/09.jpg" alt="Page 09">
+    <img src="images/10.jpg" alt="Page 10">
+    <img src="images/11.jpg" alt="Page 11">
+    <img src="images/12.jpg" alt="Page 12">
+    <img src="images/13.jpg" alt="Page 13">
+    <img src="images/14.jpg" alt="Page 14">
+    <img src="images/15.jpg" alt="Page 15">
+    <img src="images/16.jpg" alt="Page 16">
+</div>
+
+<!-- Barre de navigation en bas -->
+<div class="footer-nav">
+    <a href="chapter1.html">Chapitre Précédent</a>
+    <a href="chapter2.html">Chapitre Suivant</a>
+</div>
+
+<script>
+    // Script pour basculer l'affichage du répertoire des chapitres
+    const directoryIcon = document.getElementById('toggleDirectory');
+    const chapterDirectory = document.getElementById('chapterDirectory');
+
+    directoryIcon.addEventListener('click', function() {
+        // Toggle l'affichage du répertoire des chapitres
+        if (chapterDirectory.style.display === 'none' || chapterDirectory.style.display === '') {
+            chapterDirectory.style.display = 'block';
+        } else {
+            chapterDirectory.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
+
